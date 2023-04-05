@@ -50,7 +50,7 @@ public class ModuleTest {
     }
     @Test
     public static void newMethod(){
-        System.out.println("这是一个master添加的新方法");
+        System.out.println("这是一个合并后的新方法");
     }
 
     public static void main(String[] args) throws ParseException {
