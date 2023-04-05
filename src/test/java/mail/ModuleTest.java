@@ -48,6 +48,10 @@ public class ModuleTest {
                 + (diff / minuteM);
         return Integer.parseInt(String.valueOf(minute));
     }
+    @Test
+    public static void newMethod(){
+        System.out.println("这是一个添加的新方法");
+    }
 
     public static void main(String[] args) throws ParseException {
 //        encoder();
