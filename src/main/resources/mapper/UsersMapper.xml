@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wondercar.mapper.UsersMapper">
+    <!--根据用户id查询角色信息-->
+    <select id="selectRoleByUserId" resultType="com.wondercar.entity.Role">
+        select r.id,r.name from role r
+        inner join role_user ru
+        on ru.rid = r.id where ru.uid = #{userId}
+    </select>
+    <!--根据用户id查询菜单信息-->
+    <select id="selectMenuByUserId" resultType="com.wondercar.entity.Menu">
+        select m.* from menu m
+        inner join role_menu rm on m.id = rm.mid
+        inner join role r on r.id = rm.rid
+        inner join role_user ru on ru.rid = r.id
+        where ru.uid = #{userId}
+    </select>
+</mapper>

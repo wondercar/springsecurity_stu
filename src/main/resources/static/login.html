@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+请登录~
+<form action="/login" method="post">
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="password" name="password"><br>
+    <!--
+        csrf防护测试
+        如果应用程序开启了csrf防护，则该表单项会存在html代码中，反之不会。
+    -->
+    <input type="hidden" th:if="${_csrf}!=null" th:value="${_csrf.token}" name="_csrf">
+    记住我：<input type="checkbox" name="remember-me" title="记住我"><br>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
